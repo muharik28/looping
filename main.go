@@ -30,6 +30,21 @@ func (SquarePattern) Generate(size int) string {
 	return result
 }
 
+type AscendingTrianglePattern struct{}
+
+func (AscendingTrianglePattern) Generate(size int) string {
+	var line string
+	rows := make([]string, size)
+	for i := range size {
+		line += "*"
+		rows[i] = line
+	}
+
+	result := strings.Join(rows, "\n")
+
+	return result
+}
+
 // =============================
 // Application Layer
 // =============================
@@ -64,9 +79,9 @@ func main() {
 		return
 	}
 
-	squarePattern := SquarePattern{}
+	ascendingTrianglePattern := AscendingTrianglePattern{}
 
-	generator := NewPatternGenerator(squarePattern)
+	generator := NewPatternGenerator(ascendingTrianglePattern)
 
 	line := generator.GeneratePattern(i)
 	fmt.Print(line)

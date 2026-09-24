@@ -10,3 +10,12 @@ func TestSquarePatternNoTrailingNewline(t *testing.T) {
 		t.Fatalf("Generate() = %q, want %q", got, want)
 	}
 }
+
+func TestAscendingTrianglePatternNoTrailingNewline(t *testing.T) {
+	got := AscendingTrianglePattern{}.Generate(3)
+	want := "*\n**\n***"
+
+	if got != want {
+		t.Fatalf("Generate() = %q, want %q", got, want)
+	}
+}
