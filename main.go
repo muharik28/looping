@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"strconv"
+	"strings"
 )
 
 // =============================
@@ -17,12 +18,16 @@ type Generator interface {
 // SquarePattern implementation
 type SquarePattern struct{}
 
-func (SquarePattern) Generate(size int) (line string) {
-	for range size {
-		line += "*"
+func (SquarePattern) Generate(size int) string {
+	line := strings.Repeat("*", size)
+	rows := make([]string, size)
+	for i := range size {
+		rows[i] = line
 	}
 
-	return line
+	result := strings.Join(rows, "\n")
+
+	return result
 }
 
 // =============================
@@ -63,8 +68,6 @@ func main() {
 
 	generator := NewPatternGenerator(squarePattern)
 
-	for range i {
-		line := generator.GeneratePattern(i)
-		fmt.Println(line)
-	}
+	line := generator.GeneratePattern(i)
+	fmt.Print(line)
 }
