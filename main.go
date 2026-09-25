@@ -45,6 +45,21 @@ func (AscendingTrianglePattern) Generate(size int) string {
 	return result
 }
 
+type DescendingTrianglePattern struct{}
+
+func (DescendingTrianglePattern) Generate(size int) string {
+	line := strings.Repeat("*", size)
+	rows := make([]string, size)
+	for i := range size {
+		rows[i] = line
+		line = line[:len(line)-1]
+	}
+
+	result := strings.Join(rows, "\n")
+
+	return result
+}
+
 // =============================
 // Application Layer
 // =============================
@@ -79,9 +94,9 @@ func main() {
 		return
 	}
 
-	ascendingTrianglePattern := AscendingTrianglePattern{}
+	descendingTrianglePattern := DescendingTrianglePattern{}
 
-	generator := NewPatternGenerator(ascendingTrianglePattern)
+	generator := NewPatternGenerator(descendingTrianglePattern)
 
 	line := generator.GeneratePattern(i)
 	fmt.Print(line)
