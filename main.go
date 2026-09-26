@@ -68,6 +68,7 @@ func (d DiamondPattern) Generate(size int) string {
 	for x := range size {
 		line := ""
 
+		// size*5 harcode 5 for result stars 5 if 1 stars change 5 to 1
 		for y := 0; y < size*5; y++ {
 			line += d.determineCharacter(x, y, size)
 		}
