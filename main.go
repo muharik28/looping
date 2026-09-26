@@ -60,6 +60,49 @@ func (DescendingTrianglePattern) Generate(size int) string {
 	return result
 }
 
+type DiamondPattern struct{}
+
+func (d DiamondPattern) Generate(size int) string {
+	var rows []string
+
+	for x := range size {
+		line := ""
+
+		for y := 0; y < size*5; y++ {
+			line += d.determineCharacter(x, y, size)
+		}
+		rows = append(rows, line)
+	}
+
+	result := strings.Join(rows, "\n")
+
+	return result
+}
+
+func (DiamondPattern) determineCharacter(x, y, size int) string {
+	mid := size / 2
+
+	xOffset := x % size
+	yOffset := y % size
+
+	distanceX := xOffset - mid
+	distanceY := yOffset - mid
+
+	if distanceX < 0 {
+		distanceX = -distanceX
+	}
+
+	if distanceY < 0 {
+		distanceY = -distanceY
+	}
+
+	if distanceX+distanceY <= mid {
+		return "*"
+	}
+
+	return " "
+}
+
 // =============================
 // Application Layer
 // =============================
@@ -94,9 +137,9 @@ func main() {
 		return
 	}
 
-	descendingTrianglePattern := DescendingTrianglePattern{}
+	damondPattern := DiamondPattern{}
 
-	generator := NewPatternGenerator(descendingTrianglePattern)
+	generator := NewPatternGenerator(damondPattern)
 
 	line := generator.GeneratePattern(i)
 	fmt.Print(line)
