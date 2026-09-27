@@ -1,5 +1,11 @@
 - Run App:
 
 ```sh
-$ go run main.go
+$ make run
+```
+
+- Test App:
+
+```sh
+$ make test
 ```
