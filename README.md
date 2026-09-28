@@ -9,5 +9,3 @@ $ make run
 ```sh
 $ make test
 ```
-
-<!-- test aja -->
