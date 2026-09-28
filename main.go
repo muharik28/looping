@@ -71,7 +71,7 @@ func (d DiamondPattern) Generate(size int) string {
 
 		// size*5 harcode 5 for result stars 5 if 1 stars change 5 to 1, this is column
 		for y := 0; y < size*5; y++ {
-			line += d.determineCharacter(x, y, size)
+			line += d.diamondCharacter(x, y, size)
 		}
 		rows = append(rows, line)
 	}
@@ -81,7 +81,7 @@ func (d DiamondPattern) Generate(size int) string {
 	return result
 }
 
-func (DiamondPattern) determineCharacter(x, y, size int) string {
+func (DiamondPattern) diamondCharacter(x, y, size int) string {
 	mid := size / 2
 
 	xOffset := x % size
