@@ -128,7 +128,7 @@ func (p *PatternGenerator) GeneratePattern(size int) string {
 }
 
 func main() {
-	fmt.Print("Enter size of square pattern: ")
+	fmt.Print("Enter size of pattern: ")
 
 	var size string
 	fmt.Scanln(&size)
