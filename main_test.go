@@ -30,7 +30,7 @@ func TestDescendingTrianglePatternNoTrailingNewline(t *testing.T) {
 }
 
 /*
-	Result for 5 stars
+	Result for 5 diamond pattern
 */
 //   *    *    *    *    *
 //  ***  ***  ***  ***  ***
