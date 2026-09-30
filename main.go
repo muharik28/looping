@@ -66,7 +66,7 @@ func (d DiamondPattern) Generate(size int) string {
 	var rows []string
 
 	// size*3 harcode 3 for result stars 3 if 1 stars change 3 to 1, this is row
-	for x := 0; x < size*3; x++ {
+	for x := 0; x < size*1; x++ {
 		var line strings.Builder
 
 		// size*5 harcode 5 for result stars 5 if 1 stars change 5 to 1, this is column
