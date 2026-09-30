@@ -67,13 +67,13 @@ func (d DiamondPattern) Generate(size int) string {
 
 	// size*3 harcode 3 for result stars 3 if 1 stars change 3 to 1, this is row
 	for x := 0; x < size*3; x++ {
-		line := ""
+		var line strings.Builder
 
 		// size*5 harcode 5 for result stars 5 if 1 stars change 5 to 1, this is column
 		for y := 0; y < size*5; y++ {
-			line += d.diamondCharacter(x, y, size)
+			line.WriteString(d.diamondCharacter(x, y, size))
 		}
-		rows = append(rows, line)
+		rows = append(rows, line.String())
 	}
 
 	result := strings.Join(rows, "\n")
