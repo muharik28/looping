@@ -19,15 +19,25 @@ type Generator interface {
 type SquarePattern struct{}
 
 func (SquarePattern) Generate(size int) string {
-	line := strings.Repeat("*", size)
-	rows := make([]string, size)
-	for i := range size {
-		rows[i] = line
+	down, right := 3, 1
+
+	if size <= 0 || down <= 0 || right <= 0 {
+		return ""
 	}
 
-	result := strings.Join(rows, "\n")
+	var result strings.Builder
 
-	return result
+	line := strings.Repeat("*", size*right)
+	for d := range down {
+
+		result.WriteString(line)
+
+		if d < down-1 {
+			result.WriteString("\n")
+		}
+	}
+
+	return result.String()
 }
 
 type AscendingTrianglePattern struct{}
@@ -161,9 +171,9 @@ func main() {
 		return
 	}
 
-	ascendingTrianglePattern := AscendingTrianglePattern{}
+	squarePattern := SquarePattern{}
 
-	generator := NewPatternGenerator(ascendingTrianglePattern)
+	generator := NewPatternGenerator(squarePattern)
 
 	line := generator.GeneratePattern(i)
 	fmt.Print(line)
