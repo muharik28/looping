@@ -2,6 +2,12 @@ package main
 
 import "testing"
 
+/*
+	Result for 3 square pattern
+*/
+// ***
+// ***
+// ***
 func TestSquarePatternNoTrailingNewline(t *testing.T) {
 	got := SquarePattern{}.Generate(3)
 	want := "***\n***\n***"
