@@ -80,6 +80,21 @@ func (AscendingTrianglePattern) Generate(size int) string {
 type DescendingTrianglePattern struct{}
 
 func (DescendingTrianglePattern) Generate(size int) string {
+	// down, right := 2, 2
+
+	// if size <= 0 || down <= 0 || right <= 0 {
+	// 	return ""
+	// }
+
+	// var result strings.Builder
+
+	// for d := range down {
+
+	// 	if d < down-1 {
+	// 		result.WriteString("\n")
+	// 	}
+	// }
+
 	line := strings.Repeat("*", size)
 	rows := make([]string, size)
 	for i := range size {
