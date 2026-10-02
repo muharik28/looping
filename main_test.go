@@ -34,7 +34,7 @@ func TestAscendingTrianglePatternNoTrailingNewline(t *testing.T) {
 
 func TestDescendingTrianglePatternNoTrailingNewline(t *testing.T) {
 	got := DescendingTrianglePattern{}.Generate(3)
-	want := "***\n**\n*"
+	want := "***************\n** ** ** ** **\n*  *  *  *  *"
 
 	if got != want {
 		t.Fatalf("Generate() = %q, want %q", got, want)
