@@ -80,31 +80,38 @@ func (AscendingTrianglePattern) Generate(size int) string {
 type DescendingTrianglePattern struct{}
 
 func (DescendingTrianglePattern) Generate(size int) string {
-	// down, right := 2, 2
+	down, right := 1, 5
 
-	// if size <= 0 || down <= 0 || right <= 0 {
-	// 	return ""
-	// }
-
-	// var result strings.Builder
-
-	// for d := range down {
-
-	// 	if d < down-1 {
-	// 		result.WriteString("\n")
-	// 	}
-	// }
-
-	line := strings.Repeat("*", size)
-	rows := make([]string, size)
-	for i := range size {
-		rows[i] = line
-		line = line[:len(line)-1]
+	if size <= 0 || down <= 0 || right <= 0 {
+		return ""
 	}
 
-	result := strings.Join(rows, "\n")
+	var result strings.Builder
 
-	return result
+	for d := range down {
+
+		for row := size; row >= 1; row-- {
+
+			for col := range right {
+				result.WriteString(strings.Repeat("*", row))
+
+				if col < right-1 {
+					spaces := size - row
+					result.WriteString(strings.Repeat(" ", spaces))
+				}
+			}
+
+			if row > 1 {
+				result.WriteString("\n")
+			}
+		}
+
+		if d < down-1 {
+			result.WriteString("\n")
+		}
+	}
+
+	return result.String()
 }
 
 type DiamondPattern struct{}
@@ -186,9 +193,9 @@ func main() {
 		return
 	}
 
-	squarePattern := SquarePattern{}
+	descendingTrianglePattern := DescendingTrianglePattern{}
 
-	generator := NewPatternGenerator(squarePattern)
+	generator := NewPatternGenerator(descendingTrianglePattern)
 
 	line := generator.GeneratePattern(i)
 	fmt.Print(line)
