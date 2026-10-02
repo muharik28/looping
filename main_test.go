@@ -32,6 +32,12 @@ func TestAscendingTrianglePatternNoTrailingNewline(t *testing.T) {
 	}
 }
 
+/*
+	Result for 5 descending triangle pattern
+*/
+// ***************
+// ** ** ** ** **
+// *  *  *  *  *
 func TestDescendingTrianglePatternNoTrailingNewline(t *testing.T) {
 	got := DescendingTrianglePattern{}.Generate(3)
 	want := "***************\n** ** ** ** **\n*  *  *  *  *"
