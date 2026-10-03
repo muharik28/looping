@@ -19,7 +19,6 @@ type Generator interface {
 type SquarePattern struct{}
 
 func (SquarePattern) Generate(size, down, right int) string {
-	down, right = 3, 1
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -43,7 +42,6 @@ func (SquarePattern) Generate(size, down, right int) string {
 type AscendingTrianglePattern struct{}
 
 func (AscendingTrianglePattern) Generate(size, down, right int) string {
-	down, right = 1, 5
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -80,7 +78,6 @@ func (AscendingTrianglePattern) Generate(size, down, right int) string {
 type DescendingTrianglePattern struct{}
 
 func (DescendingTrianglePattern) Generate(size, down, right int) string {
-	down, right = 1, 5
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -117,7 +114,6 @@ func (DescendingTrianglePattern) Generate(size, down, right int) string {
 type DiamondPattern struct{}
 
 func (d DiamondPattern) Generate(size, down, right int) string {
-	down, right = 1, 5
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -203,6 +199,6 @@ func main() {
 
 	generator := NewPatternGenerator(squarePattern)
 
-	line := generator.GeneratePattern(i, 1, 5)
+	line := generator.GeneratePattern(i, 3, 1)
 	fmt.Print(line)
 }
