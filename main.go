@@ -12,14 +12,14 @@ import (
 
 // Generator abstraction
 type Generator interface {
-	Generate(size int) string
+	Generate(size, down, right int) string
 }
 
 // SquarePattern implementation
 type SquarePattern struct{}
 
-func (SquarePattern) Generate(size int) string {
-	down, right := 3, 1
+func (SquarePattern) Generate(size, down, right int) string {
+	down, right = 3, 1
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -42,8 +42,8 @@ func (SquarePattern) Generate(size int) string {
 
 type AscendingTrianglePattern struct{}
 
-func (AscendingTrianglePattern) Generate(size int) string {
-	down, right := 1, 5
+func (AscendingTrianglePattern) Generate(size, down, right int) string {
+	down, right = 1, 5
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -79,8 +79,8 @@ func (AscendingTrianglePattern) Generate(size int) string {
 
 type DescendingTrianglePattern struct{}
 
-func (DescendingTrianglePattern) Generate(size int) string {
-	down, right := 1, 5
+func (DescendingTrianglePattern) Generate(size, down, right int) string {
+	down, right = 1, 5
 
 	if size <= 0 || down <= 0 || right <= 0 {
 		return ""
@@ -116,15 +116,21 @@ func (DescendingTrianglePattern) Generate(size int) string {
 
 type DiamondPattern struct{}
 
-func (d DiamondPattern) Generate(size int) string {
+func (d DiamondPattern) Generate(size, down, right int) string {
+	down, right = 1, 5
+
+	if size <= 0 || down <= 0 || right <= 0 {
+		return ""
+	}
+
 	var rows []string
 
 	// size*3 harcode 3 for result stars 3 if 1 stars change 3 to 1, this is row
-	for x := 0; x < size*1; x++ {
+	for x := 0; x < size*down; x++ {
 		var line strings.Builder
 
 		// size*5 harcode 5 for result stars 5 if 1 stars change 5 to 1, this is column
-		for y := 0; y < size*5; y++ {
+		for y := 0; y < size*right; y++ {
 			line.WriteString(d.diamondCharacter(x, y, size))
 		}
 		rows = append(rows, line.String())
@@ -177,8 +183,8 @@ func NewPatternGenerator(generator Generator) *PatternGenerator {
 	}
 }
 
-func (p *PatternGenerator) GeneratePattern(size int) string {
-	return p.generator.Generate(size)
+func (p *PatternGenerator) GeneratePattern(size, down, right int) string {
+	return p.generator.Generate(size, down, right)
 }
 
 func main() {
@@ -193,10 +199,10 @@ func main() {
 		return
 	}
 
-	descendingTrianglePattern := DescendingTrianglePattern{}
+	squarePattern := SquarePattern{}
 
-	generator := NewPatternGenerator(descendingTrianglePattern)
+	generator := NewPatternGenerator(squarePattern)
 
-	line := generator.GeneratePattern(i)
+	line := generator.GeneratePattern(i, 1, 5)
 	fmt.Print(line)
 }
