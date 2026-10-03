@@ -9,7 +9,7 @@ import "testing"
 // ***
 // ***
 func TestSquarePatternNoTrailingNewline(t *testing.T) {
-	got := SquarePattern{}.Generate(3)
+	got := SquarePattern{}.Generate(3, 3, 1)
 	want := "***\n***\n***"
 
 	if got != want {
@@ -24,7 +24,7 @@ func TestSquarePatternNoTrailingNewline(t *testing.T) {
 // ** ** ** ** **
 // ***************
 func TestAscendingTrianglePatternNoTrailingNewline(t *testing.T) {
-	got := AscendingTrianglePattern{}.Generate(3)
+	got := AscendingTrianglePattern{}.Generate(3, 1, 5)
 	want := "*  *  *  *  *\n** ** ** ** **\n***************"
 
 	if got != want {
@@ -39,7 +39,7 @@ func TestAscendingTrianglePatternNoTrailingNewline(t *testing.T) {
 // ** ** ** ** **
 // *  *  *  *  *
 func TestDescendingTrianglePatternNoTrailingNewline(t *testing.T) {
-	got := DescendingTrianglePattern{}.Generate(3)
+	got := DescendingTrianglePattern{}.Generate(3, 1, 5)
 	want := "***************\n** ** ** ** **\n*  *  *  *  *"
 
 	if got != want {
@@ -56,7 +56,7 @@ func TestDescendingTrianglePatternNoTrailingNewline(t *testing.T) {
 //  ***  ***  ***  ***  ***
 //   *    *    *    *    *
 func TestDiamondPattern(t *testing.T) {
-	got := DiamondPattern{}.Generate(5)
+	got := DiamondPattern{}.Generate(5, 1, 5)
 	want := "  *    *    *    *    *  \n ***  ***  ***  ***  *** \n*************************\n ***  ***  ***  ***  *** \n  *    *    *    *    *  "
 
 	if got != want {
