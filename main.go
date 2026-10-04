@@ -191,9 +191,34 @@ func main() {
 	fmt.Print("Enter size of pattern: ")
 
 	var size string
+
 	fmt.Scanln(&size)
 
-	i, err := strconv.Atoi(size)
+	s, err := strconv.Atoi(size)
+	if err != nil {
+		fmt.Println("Invalid input. Please enter a valid number.")
+		return
+	}
+
+	fmt.Print("Enter down of pattern: ")
+
+	var down string
+
+	fmt.Scanln(&down)
+
+	d, err := strconv.Atoi(down)
+	if err != nil {
+		fmt.Println("Invalid input. Please enter a valid number.")
+		return
+	}
+
+	fmt.Print("Enter right of pattern: ")
+
+	var right string
+
+	fmt.Scanln(&right)
+
+	r, err := strconv.Atoi(right)
 	if err != nil {
 		fmt.Println("Invalid input. Please enter a valid number.")
 		return
@@ -203,6 +228,6 @@ func main() {
 
 	generator := NewPatternGenerator(squarePattern)
 
-	line := generator.GeneratePattern(i, 3, 1)
+	line := generator.GeneratePattern(s, d, r)
 	fmt.Print(line)
 }
