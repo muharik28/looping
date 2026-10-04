@@ -138,6 +138,7 @@ func (d DiamondPattern) Generate(size, down, right int) string {
 }
 
 func (DiamondPattern) diamondCharacter(x, y, size int) string {
+
 	mid := size / 2
 
 	xOffset := x % size
@@ -174,16 +175,19 @@ type PatternGenerator struct {
 //
 // Dependency Injection pass through the paremeter generator
 func NewPatternGenerator(generator Generator) *PatternGenerator {
+
 	return &PatternGenerator{
 		generator: generator,
 	}
 }
 
 func (p *PatternGenerator) GeneratePattern(size, down, right int) string {
+
 	return p.generator.Generate(size, down, right)
 }
 
 func main() {
+
 	fmt.Print("Enter size of pattern: ")
 
 	var size string
