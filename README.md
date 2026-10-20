@@ -41,3 +41,37 @@ Test App:
 ```sh
 $ make test
 ```
+
+# Project-Structure
+
+    looping/
+    │
+    ├── cmd/
+    │   └── pattern-generator/
+    │       └── execute.go
+    │
+    ├── internal/
+    │   ├── domain/
+    │   │   └── pattern.go
+    │   │
+    │   ├── application/
+    │   │   ├── pattern_generator.go
+    │   │   └── pattern_generator_test.go
+    │   │
+    │   ├── infrastructure/
+    │   │   └── patterns/
+    │   │       ├── square.go
+    │   │       ├── square_test.go
+    │   │       ├── ascending_triangle.go
+    │   │       ├── ascending_triangle_test.go
+    │   │       ├── descending_triangle.go
+    │   │       ├── descending_triangle_test.go
+    │   │       ├── diamond.go
+    │   │       └── diamond_test.go
+    │   │
+    │   └── input/
+    │       └── console.go
+    │
+    ├── go.mod
+    ├── Makefile
+    └── README.md
