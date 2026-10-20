@@ -1,4 +1,4 @@
-package main
+package pattern_generator
 
 import (
 	"fmt"
@@ -9,7 +9,7 @@ import (
 	"github.com/muharik28/looping/internal/infrastructure/patterns"
 )
 
-func main() {
+func Execute() {
 	console := input.NewConsole()
 
 	size, err := console.ReadInt("Enter size of pattern: ")
