@@ -30,9 +30,9 @@ func Execute() {
 		os.Exit(1)
 	}
 
-	var sequarePattern patterns.SquarePattern
+	var pyramidPattern patterns.PyramidPattern
 
-	generator := application.NewPatternGenerator(&sequarePattern)
+	generator := application.NewPatternGenerator(&pyramidPattern)
 
 	result := generator.GeneratePattern(size, down, right)
 
