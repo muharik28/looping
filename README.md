@@ -68,6 +68,8 @@ $ make test
     │   │       ├── descending_triangle_test.go
     │   │       ├── diamond.go
     │   │       └── diamond_test.go
+    │   │       └── pyramid.go
+    │   │       └── pyramid_test.go
     │   │
     │   └── input/
     │       └── console.go
