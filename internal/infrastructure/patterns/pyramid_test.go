@@ -11,11 +11,11 @@ func TestPyramidPattern_Generate(t *testing.T) {
 		want  string
 	}{
 		{
-			name:  "3 size down 2 right 2",
-			size:  3,
+			name:  "5 size down 2 right 2",
+			size:  5,
 			down:  2,
 			right: 2,
-			want:  "  *       *  \n ***     *** \n*****   *****\n  *       *  \n ***     *** \n*****   *****",
+			want:  "    *           *    \n   ***         ***   \n  *****       *****  \n *******     ******* \n*********   *********\n    *           *    \n   ***         ***   \n  *****       *****  \n *******     ******* \n*********   *********",
 		},
 		{
 			name:  "invalid size",
@@ -26,14 +26,14 @@ func TestPyramidPattern_Generate(t *testing.T) {
 		},
 		{
 			name:  "invalid down",
-			size:  3,
+			size:  5,
 			down:  0,
 			right: 2,
 			want:  "",
 		},
 		{
 			name:  "invalid right",
-			size:  3,
+			size:  5,
 			down:  2,
 			right: 0,
 			want:  "",
